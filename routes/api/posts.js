@@ -8,7 +8,11 @@ router = express.Router();
 // @desc    Test route
 // @access  Public
 
-router.get("/", (req, res) => res.send("Posts route"));
+router.get("/", (req, res) => {
+  const cursor = db.collection('quotes').find()
+  console.log(cursor)
+  res.send("Posts route")
+});
 
 // @route   POST api/users
 // @desc    Register route
@@ -17,28 +21,17 @@ router.get("/", (req, res) => res.send("Posts route"));
 router.post("/test", async (req, res) => {
   console.log(req.body);
 
-  const post = new Post({
-    name: "Brad Pitt",
-    email: "brad_pitt@abv.bg"
-  });
+  const post = new Post(req.body);
 
   try {
     let data = await post.save();
-    res.json(data);
+    res.status(201).json(data);
   } catch (err) {
-    res.json(err);
+    res.status(500).json(err);
   }
-
-  // .then(data => {
-  //   console.log(data);
-  //   res.json(data);
-  // })
-  // .catch(err => {
-  //   console.log("error");
-  //   res.json({ message: "test" });
-  // });
-
-  console.log("saved 1");
 });
+
+console.log(router);
+
 
 module.exports = router;
