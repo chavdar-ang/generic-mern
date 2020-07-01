@@ -1,7 +1,11 @@
-const express = require("express");
-const { check, validationResult } = require("express-validator");
 
-const rest = (route, model) => {
+module.exports = model => {
+
+  const express = require("express");
+  const { check, validationResult } = require("express-validator");
+  
+  router = new express.Router();
+
   // @route   GET api/{model}
   // @desc    Index route
   // @access  --
@@ -84,5 +88,3 @@ const rest = (route, model) => {
   }
   return router;
 };
-
-module.exports = rest;

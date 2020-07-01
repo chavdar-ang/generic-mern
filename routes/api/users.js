@@ -3,6 +3,6 @@ const { check, validationResult } = require("express-validator");
 const rest = require("../rest");
 const User = require("../../models/User");
 
-router = express.Router();
+// router = new express.Router();
 
-module.exports = rest(router, User);
+module.exports = rest(User);

@@ -3,6 +3,6 @@ const { check, validationResult } = require("express-validator");
 const rest = require("../rest");
 const Post = require("../../models/Post");
 
-router = express.Router();
+// router = express.Router();
 
-module.exports = rest(router, Post);
+module.exports = rest(Post);
