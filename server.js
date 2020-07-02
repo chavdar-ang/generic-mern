@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const config = require("config");
 const fs = require("fs");
 const path = require("path");
+// const models = require("./models");
+const rotues = require("./routes/api/posts");
+
+// console.log(models);
 
 // const connectDB = require("./config/db");
 
@@ -39,11 +43,12 @@ app.get("/", (req, res) => res.send("API is running"));
  * Dyanmic Routing
  * Adds all routes from routes folder
  */
-fs.readdir("./routes/api", (err, files) => {
-  files.forEach(file => {
-    // app.use("/api/posts", require("./routes/api/posts"));
-    app.use(`/api/${path.parse(file).name}`, require("./routes/api/" + file));
-  });
-});
+require("./routes")(app);
+// fs.readdir("./routes/api", (err, files) => {
+//   files.forEach(file => {
+//     // app.use("/api/posts", require("./routes/api/posts"));
+//     app.use(`/api/${path.parse(file).name}`, require("./routes/api/" + file));
+//   });
+// });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

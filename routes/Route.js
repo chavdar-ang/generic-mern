@@ -1,15 +1,12 @@
+const express = require("express");
+const { check, validationResult } = require("express-validator");
 
-module.exports = model => {
-
-  const express = require("express");
-  const { check, validationResult } = require("express-validator");
-  
+resource = model => {
   router = new express.Router();
 
   // @route   GET api/{model}
   // @desc    Index route
   // @access  --
-
   router.get("/", async (req, res) => {
     try {
       const documents = await model.find();
@@ -23,7 +20,6 @@ module.exports = model => {
   // @route   GET api/{model}/{id}
   // @desc    Show route
   // @access  --
-
   router.get("/:id", getDocument, (req, res) => {
     res.json(res.document);
   });
@@ -31,7 +27,6 @@ module.exports = model => {
   // @route   POST api/users
   // @desc    Register route
   // @access  Public
-
   router.post("/", async (req, res) => {
     console.log(req.body, req.baseUrl);
 
@@ -88,3 +83,5 @@ module.exports = model => {
   }
   return router;
 };
+
+module.exports = { resource };
