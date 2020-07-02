@@ -28,7 +28,7 @@ resource = model => {
   // @desc    Register route
   // @access  Public
   router.post("/", async (req, res) => {
-    console.log(req.body, req.baseUrl);
+    // console.log(req.body, req.baseUrl);
 
     const document = new model(req.body);
 
