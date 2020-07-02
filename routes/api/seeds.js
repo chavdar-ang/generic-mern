@@ -26,4 +26,13 @@ router.post("/list", async (req, res) => {
   res.send(result);
 });
 
+router.get("/populate/:id", async (req, res) => {
+  // req.body.id
+
+  const result = await Post.findById(req.params.id, function (err) {
+    if (err) return handleError(err);
+  }).populate("fans");
+  res.send(result);
+});
+
 module.exports = router;
