@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
+const { Post } = require("./models");
 
 // const connectDB = require("./config/db");
+console.log(Post);
 
 const PORT = process.env.PORT || 5000;
 
@@ -32,6 +34,14 @@ db.once("open", function () {
 app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => res.send("API is running"));
+
+app.get("/test", async (req, res) => {
+  
+  let post = await Post.aggregate([{ $sample: { size: 1 } }]);
+  console.log(post);
+
+  res.send(post);
+});
 
 /**
  * Dyanmic Routing
