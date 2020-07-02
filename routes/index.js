@@ -6,6 +6,7 @@ module.exports = app => {
   app.use("/api/posts", require("./api/posts"));
   app.use("/api/users", require("./api/users"));
   app.use("/api/graphs", require("./api/graphs"));
+  app.use("/api/test", require("./api/seeds"));
 };
 
 // const fs = require("fs");

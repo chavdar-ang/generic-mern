@@ -1,24 +1,23 @@
 const mongoose = require("mongoose");
 
 const GraphSchema = new mongoose.Schema({
-  from: {
+  source: {
     type: mongoose.ObjectId,
-    ref: 'Post',
+    ref: "Post",
     required: true
   },
 
-  to: {
+  target: {
     type: mongoose.ObjectId,
-    ref: 'Post',
+    ref: "Post",
     required: true
   },
 
-  direction: {
+  path: {
     type: String,
     enum: ["inbound", "outbound", "any"],
     default: "outbound"
   }
-
 });
 
 module.exports = mongoose.model("Graph", GraphSchema);
