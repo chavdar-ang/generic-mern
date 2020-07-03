@@ -15,6 +15,8 @@ let mongodbSettings = {
   useCreateIndex: true
 };
 
+mongoose.set("debug", true);
+
 // connect to mongodb
 mongoose.connect(config.get("mongoURI"), mongodbSettings);
 

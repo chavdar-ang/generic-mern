@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const GraphSchema = new mongoose.Schema({
   source: {
-    type: mongoose.ObjectId,
+    type: mongoose.Types.ObjectId,
     ref: "Post",
     required: true
   },
 
   target: {
-    type: mongoose.ObjectId,
+    type: mongoose.Types.ObjectId,
     ref: "Post",
     required: true
   },
