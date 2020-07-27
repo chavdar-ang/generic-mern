@@ -9,3 +9,17 @@ content-type: application/json
     "name": "Brad Pitt",
     "email": "brad@pitt.com"
 }
+
+###
+
+PATCH http://localhost:5000/api/users/5f0f0f571dd4d69a8604e95e HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Brad Pitt2",
+    "email": "brad@pitt2.com"
+}
+
+###
+
+DELETE http://localhost:5000/api/users/5f1e9e147d4c6138709b6357 HTTP/1.1

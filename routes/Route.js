@@ -25,7 +25,7 @@ resource = model => {
   });
 
   // @route   POST api/users
-  // @desc    Register route
+  // @desc    Store route
   // @access  Public
   router.post("/", async (req, res) => {
     // console.log(req.body, req.baseUrl);
@@ -36,7 +36,7 @@ resource = model => {
       let newDocument = await document.save();
       res.status(201).json(newDocument);
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).json({ message: err.message });
     }
   });
 
@@ -56,7 +56,7 @@ resource = model => {
   });
 
   // @route   DELETE api/{model}/{id}
-  // @desc    Update route
+  // @desc    Delete route
   // @access  --
   router.delete("/:id", getDocument, async (req, res) => {
     try {
