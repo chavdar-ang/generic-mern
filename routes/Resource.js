@@ -81,7 +81,8 @@ resource = model => {
     res.document = document;
     next();
   }
+  
   return router;
 };
 
-module.exports = { resource };
+module.exports = resource;

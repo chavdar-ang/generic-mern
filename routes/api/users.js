@@ -1,6 +1,5 @@
-const express = require("express");
-const { check, validationResult } = require("express-validator");
-const Route = require("../Route");
+// const { check, validationResult } = require("express-validator");
+const resource = require("../Resource");
 const User = require("../../models/User");
 
-module.exports = Route.resource(User);
+module.exports = resource(User);

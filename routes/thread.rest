@@ -1,0 +1,16 @@
+GET http://localhost:5000/api/threads
+
+###
+
+POST http://localhost:5000/api/threads HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Fast, unopinionated, minimalist web framework for Node.js",
+    "body": "Express is a minimal and flexible Node.js web application"
+    
+}
+
+###
+
+PATCH http://localhost:5000/api/threads/5f1ee8f36518644874ed1d50
