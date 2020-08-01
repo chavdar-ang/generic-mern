@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Reply = require("./Reply");
+const Reply = require("./Reply").schema;
 const Schema = mongoose.Schema;
 
 const ThreadSchema = new mongoose.Schema({
@@ -14,7 +14,7 @@ const ThreadSchema = new mongoose.Schema({
   },
 
   // here
-  replies: [Reply]
+  replies: [{ type: Schema.Types.ObjectId, ref: "Reply" }]
 });
 
 module.exports = mongoose.model("Thread", ThreadSchema);

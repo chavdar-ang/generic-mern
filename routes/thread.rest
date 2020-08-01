@@ -8,9 +8,24 @@ content-type: application/json
 {
     "title": "Fast, unopinionated, minimalist web framework for Node.js",
     "body": "Express is a minimal and flexible Node.js web application"
-    
 }
 
 ###
 
-PATCH http://localhost:5000/api/threads/5f1ee8f36518644874ed1d50
+PATCH http://localhost:5000/api/threads/5f1ee8f36518644874ed1d50 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Fast, unopinionated, minimalist web framework for Node.js",
+    "body": "Express is a minimal and flexible Node.js web application"
+}
+
+###
+
+POST http://localhost:5000/api/threads/reply HTTP/1.1
+content-type: application/json
+
+{
+    "_thread": "5f256cdf40b3674cc8e05781",
+    "body": "Reply body test"
+}
