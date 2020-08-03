@@ -7,14 +7,14 @@ const schema = (schema, name) => {
 };
 
 const BelongsTo = ref => {
-  return { type: Schema.Types.ObjectId, ref };
+  return { type: Schema.Types.ObjectId, ref: ref };
 };
 
 const HasMany = ref => {
   return [
     {
       type: Schema.Types.ObjectId,
-      ref
+      ref: ref
     }
   ];
 };
