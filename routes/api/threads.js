@@ -6,7 +6,6 @@ const Reply = require("../../models/Reply");
 const router = resource(Thread);
 
 router.post("/reply", async (req, res) => {
-  // const reply = ;
 
   const reply = new Reply({
     _thread: req.body._thread,
@@ -15,11 +14,7 @@ router.post("/reply", async (req, res) => {
 
   reply.save();
 
-  // console.log(req.body._thread);
-
   let thread = await Thread.findById(req.body._thread);
-
-  console.log(thread);
 
   thread.replies.push(reply);
   thread.save();

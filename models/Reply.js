@@ -1,13 +1,20 @@
 const mongoose = require("mongoose");
-const Thread = require("./Thread").schema;
 const Schema = mongoose.Schema;
+import Model from "./Model";
 
-const ReplySchema = new Schema({
-  _thread: { type: Schema.Types.ObjectId, ref: "Thread" },
+let schema = {
+  // _thread: { type: Schema.Types.ObjectId, ref: "Thread" },
+  _thread: Model.HasMany("Thread"),
   body: {
     type: String,
-    required: [true, 'Body is required.'],
+    required: [true, "Body is required."]
   }
-});
+};
 
-module.exports = mongoose.model("Reply", ReplySchema);
+// const ReplySchema = new Schema();
+
+// console.log(ReplySchema);
+
+// get the mongoose model and export it
+
+module.exports = Model.schema(schema, "Reply");

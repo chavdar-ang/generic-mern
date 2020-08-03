@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server",
+    "server": "nodemon -r esm server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chavdar Angelov",
@@ -13,6 +13,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "jsonwebtoken": "^8.5.1",
