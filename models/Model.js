@@ -6,8 +6,17 @@ const schema = (schema, name) => {
   return mongoose.model(name, model);
 };
 
-const HasMany = ref => {
-  return { type: Schema.Types.ObjectId, ref: ref };
+const BelongsTo = ref => {
+  return { type: Schema.Types.ObjectId, ref };
 };
 
-export default { schema, HasMany };
+const HasMany = ref => {
+  return [
+    {
+      type: Schema.Types.ObjectId,
+      ref
+    }
+  ];
+};
+
+export default { schema, BelongsTo, HasMany };

@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import Model from "./Model";
 
-const ThreadSchema = new mongoose.Schema({
+const schema = {
   title: {
     type: String,
     required: true
@@ -12,12 +11,14 @@ const ThreadSchema = new mongoose.Schema({
     required: [true, "Body is required."]
   },
 
-  replies: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Reply"
-    }
-  ]
-});
+  replies: Model.HasMany("Reply")
 
-module.exports = mongoose.model("Thread", ThreadSchema);
+  // replies: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Reply"
+  //   }
+  // ]
+};
+
+module.exports = Model.schema(schema, "Thread");
