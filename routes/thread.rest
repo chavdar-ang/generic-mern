@@ -26,6 +26,10 @@ POST http://localhost:5000/api/threads/reply HTTP/1.1
 content-type: application/json
 
 {
-    "_thread": "5f25732d2d570608e0334137",
+    "_thread": "5f3ba7697814de0700f27451",
     "body": "Reply body test"
 }
+
+###
+
+GET http://localhost:5000/api/threads/test/1
