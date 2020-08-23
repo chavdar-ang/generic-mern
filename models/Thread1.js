@@ -15,7 +15,7 @@ export default class Thread1 extends Model {
     }
   };
 
-  mongooseSchma;
+//   mongooseSchema;
 
   constructor() {
     super();

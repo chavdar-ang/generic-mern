@@ -3,9 +3,10 @@ import mongoose, { Schema } from "mongoose";
 export default class DataModel {
   collection = ""; // ignore jshint error
   schema = {};
-  mongooseSchema;
+//   mongooseSchema;
 
   constructor() {
+    // this is not working
     this.mongooseSchema = new Schema(this.schema);
   }
 
