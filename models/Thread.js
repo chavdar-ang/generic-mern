@@ -1,24 +1,45 @@
-import Model from "./Model";
+import Model from "./DataModel";
 
-const schema = {
-  title: {
-    type: String,
-    required: true
-  },
+export default class Thread1 extends Model {
+  collection = "threads";
+  results = ["user1", "user2", "user3", "user4"];
 
-  body: {
-    type: String,
-    required: [true, "Body is required."]
-  },
+  schema = {
+    title: {
+      type: String,
+      required: true
+    },
 
-  replies: Model.HasMany("Reply")
+    body: {
+      type: String,
+      required: [true, "Body is required."]
+    }
+  };
 
-  // replies: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Reply"
-  //   }
-  // ]
-};
+  constructor() {
+    super();
+  }
+}
 
-module.exports = Model.schema(schema, "Thread");
+// const schema = {
+//   title: {
+//     type: String,
+//     required: true
+//   },
+
+//   body: {
+//     type: String,
+//     required: [true, "Body is required."]
+//   },
+
+//   replies: Model.HasMany("Reply")
+
+//   // replies: [
+//   //   {
+//   //     type: Schema.Types.ObjectId,
+//   //     ref: "Reply"
+//   //   }
+//   // ]
+// };
+
+// module.exports = Model.schema(schema, "Thread");
