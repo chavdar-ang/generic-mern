@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const config = require("config");
 
 // const connectDB = require("./config/db");
-// console.log(Post);
 
 const PORT = process.env.PORT || 5000;
 

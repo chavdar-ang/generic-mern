@@ -1,6 +1,6 @@
 import Model from "./DataModel";
 
-export default class Thread1 extends Model {
+export default class Thread extends Model {
   collection = "threads";
   results = ["user1", "user2", "user3", "user4"];
 
