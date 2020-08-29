@@ -1,6 +1,9 @@
 import Model from "./DataModel";
 
 export default class Thread extends Model {
+  constructor() {
+    super();
+  }
   collection = "threads";
   results = ["user1", "user2", "user3", "user4"];
 
@@ -15,10 +18,6 @@ export default class Thread extends Model {
       required: [true, "Body is required."]
     }
   };
-
-  constructor() {
-    super();
-  }
 }
 
 // const schema = {

@@ -8,10 +8,16 @@ const Reply = require("../../models/Reply");
 
 // test route
 router.get("/test/1", (req, res) => {
-  let records = Thread.find();
-  let th = new Thread();
-  console.log(th);
-  res.send(records);
+  let data = {
+    title: "zxc zxc zxc ",
+    body: "body 123"
+  };
+  // Thread.find();
+  // console.log("find");
+  let records = Thread.create(data);
+  // let th = new Thread();
+  // console.log(th);
+  res.send(data);
 });
 
 // router.post("/reply", async (req, res) => {

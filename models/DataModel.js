@@ -4,20 +4,68 @@ export default class DataModel {
   collection = ""; // ignore jshint error
   schema = {};
 
-  static dbInstance() {
-    let self = new this();
+  static instance() {
+    // console.log(this);
+    return new this();
+  }
+
+  fill(attributes) {
+    this.attributes = attributes;
+    console.log("attributes", attributes);
+  }
+
+  async save() {
+    let model = this.mongooseModel();
+
+    const document = new model(this.attributes);
+
+    try {
+      let newDocument = await document.save();
+      console.log(`${this.constructor.name} is saved.`);
+      console.log("The data", this.attributes);
+      return newDocument;
+    } catch (err) {
+      return err.message;
+    }
+  }
+
+  mongooseModel() {
+    console.log('current class', this.constructor.name);
+    let className = this.constructor.name;
 
     let mongooseSchema = new Schema(this.schema);
 
-    // console.log(`${self.constructor.name} created.`);
+    // console.log(`${instance.constructor.name} created.`);
 
-    return mongoose.model(self.constructor.name, mongooseSchema);
+    // check if the mongoose model is already existing (compiled)
+    return mongoose.models && mongoose.models[className]
+      ? // or this -> mongoose.connection.models[className]
+        mongoose.models[className]
+      : mongoose.model(className, mongooseSchema);
   }
 
-  static create() {
-    let self = new this();
-    console.log(`${self.constructor.name} created.`);
-    console.log(self.collection);
+  static async create(data) {
+    let instance = new this();
+    // let self = this.instance();
+    instance.fill(data);
+    instance.save();
+    console.log(`${instance.constructor.name} created.`);
+    console.log(instance.collection);
+
+    return instance;
+
+    // let model = self.db;
+    // console.log(model);
+    // let document = new this.db()(data);
+
+    // try {
+    //   let newDocument = await document.save();
+    //   // res.status(201).json(newDocument);
+    //   return newDocument;
+    // } catch (err) {
+    //   return err.message;
+    //   // res.status(500).json({ message: err.message });
+    // }
   }
 
   static update(id) {
@@ -32,13 +80,11 @@ export default class DataModel {
   }
 
   static async find(id = null) {
-    // let self = new this();
-
-    // console.log('instance', this.dbInstance());
-
     try {
       // let self = new this();
-      const documents = await this.dbInstance().find();
+      this.db();
+      this.db();
+      const documents = await this.db().find();
       console.log(documents);
       // res.json(documents);
     } catch (err) {
@@ -48,16 +94,12 @@ export default class DataModel {
     // res.send(req.document);
     // console.log(this.dbInstance().find());
 
-    return;
+    // return;
 
     // return id !== null ? self.results[id] : this.fetch();
 
     // console.log(`${self.constructor.name} created.`);
     // console.log(self.collection);
-  }
-
-  save() {
-    console.log(`${this.constructor.name} is saved.`);
   }
 }
 
