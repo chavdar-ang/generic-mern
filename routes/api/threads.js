@@ -10,7 +10,7 @@ const Reply = require("../../models/Reply");
 router.get("/test/1", (req, res) => {
   let data = {
     title: "zxc zxc zxc ",
-    body: "body 123"
+    body: "body 1234"
   };
   // Thread.find();
   // console.log("find");

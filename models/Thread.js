@@ -1,9 +1,7 @@
 import Model from "./DataModel";
 
 export default class Thread extends Model {
-  constructor() {
-    super();
-  }
+  
   collection = "threads";
   results = ["user1", "user2", "user3", "user4"];
 
