@@ -30,7 +30,7 @@ export default class DataModel {
   }
 
   mongooseModel() {
-    console.log('current class', this.constructor.name);
+    console.log("current class", this.constructor.name);
     let className = this.constructor.name;
 
     let mongooseSchema = new Schema(this.schema);
@@ -80,16 +80,16 @@ export default class DataModel {
   }
 
   static async find(id = null) {
+    let instance = new this();
+    let model = instance.mongooseModel();
+
     try {
-      // let self = new this();
-      this.db();
-      this.db();
-      const documents = await this.db().find();
+      const documents = id ? await model.find() : await model.find(id);
       console.log(documents);
-      // res.json(documents);
+      return documents;
     } catch (err) {
       console.log(err.message);
-      // res.status(500).json({ message: err.message });
+      return err.message;
     }
     // res.send(req.document);
     // console.log(this.dbInstance().find());

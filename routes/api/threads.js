@@ -1,16 +1,16 @@
 // const { check, validationResult } = require("express-validator");
 import Thread from "../../models/Thread";
 const resource = require("../Resource");
-// const Thread = require("../../models/Thread");
 const Reply = require("../../models/Reply");
 
-// const router = resource(Thread);
+const router = resource(Thread);
 
 // test route
 router.get("/test/1", (req, res) => {
   let data = {
     title: "zxc zxc zxc ",
-    body: "body 1234"
+    body: "body 1234",
+    test: 123
   };
   // Thread.find();
   // console.log("find");

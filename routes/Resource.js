@@ -14,7 +14,8 @@ resource = model => {
     } catch (err) {
       res.status(500).json({ message: err.message });
     }
-    res.send(req.document);
+    // not sure what this was doing
+    // res.send(req.document);
   });
 
   // @route   GET api/{model}/{id}
@@ -71,7 +72,7 @@ resource = model => {
   async function getDocument(req, res, next) {
     let document;
     try {
-      document = await model.findById(req.params.id);
+      document = await model.find(req.params.id);
       if (document == null) {
         return res.status(404).json({ message: "Document not found." });
       }
@@ -81,7 +82,8 @@ resource = model => {
     res.document = document;
     next();
   }
-  
+
+  // return the whole function
   return router;
 };
 
