@@ -4,11 +4,6 @@ export default class DataModel {
   collection = ""; // ignore jshint error
   schema = {};
 
-  static instance() {
-    // console.log(this);
-    return new this();
-  }
-
   fill(attributes) {
     this.attributes = attributes;
     console.log("attributes", attributes);
@@ -48,11 +43,12 @@ export default class DataModel {
     let instance = new this();
     // let self = this.instance();
     instance.fill(data);
-    instance.save();
+    let newDocument = instance.save();
+    // console.log(newDocument);
     console.log(`${instance.constructor.name} created.`);
-    console.log(instance.collection);
+    // console.log(instance.collection);
 
-    return instance;
+    return newDocument;
 
     // let model = self.db;
     // console.log(model);
@@ -84,9 +80,9 @@ export default class DataModel {
     let model = instance.mongooseModel();
 
     try {
-      const documents = id ? await model.find() : await model.find(id);
-      console.log(documents);
-      return documents;
+      return id === null
+        ? await model.find()
+        : await model.findOne({ _id: id });
     } catch (err) {
       console.log(err.message);
       return err.message;

@@ -2,6 +2,10 @@ GET http://localhost:5000/api/threads
 
 ###
 
+GET http://localhost:5000/api/threads/5f4b77dd4b595f438887e53d HTTP/1.1
+
+###
+
 POST http://localhost:5000/api/threads HTTP/1.1
 content-type: application/json
 

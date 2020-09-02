@@ -31,10 +31,11 @@ resource = model => {
   router.post("/", async (req, res) => {
     // console.log(req.body, req.baseUrl);
 
-    const document = new model(req.body);
+    // const document = new model(req.body);
 
     try {
-      let newDocument = await document.save();
+      let newDocument = await model.create(req.body);
+      // let newDocument = await document.save();
       res.status(201).json(newDocument);
     } catch (err) {
       res.status(500).json({ message: err.message });
@@ -83,7 +84,6 @@ resource = model => {
     next();
   }
 
-  // return the whole function
   return router;
 };
 
