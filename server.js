@@ -1,12 +1,7 @@
-const express = require("express");
+// const express = require("express");
+const app = require("./app");
 const mongoose = require("mongoose");
 const config = require("config");
-
-// const connectDB = require("./config/db");
-
-const PORT = process.env.PORT || 5000;
-
-const app = express();
 
 let mongodbSettings = {
   useNewUrlParser: true,
@@ -30,15 +25,10 @@ db.once("open", function () {
   console.log("connected");
 });
 
-// Init Middleware
-app.use(express.json({ extended: false }));
-
-app.get("/", (req, res) => res.send("API is running"));
-
 /**
  * Dyanmic Routing
  * Adds all routes from routes folder
  */
 require("./routes")(app);
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+// app.get("/", (req, res) => res.send("API is running"));

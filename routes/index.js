@@ -2,7 +2,7 @@
  * routes index
  */
 
-module.exports = app => {
+module.exports = (app) => {
   app.use("/api/posts", require("./api/posts"));
   app.use("/api/users", require("./api/users"));
   app.use("/api/threads", require("./api/threads"));
