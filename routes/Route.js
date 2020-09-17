@@ -1,3 +1,5 @@
+const app = require("./../app.js");
+
 export default class Route {
 
     static get() {
@@ -21,7 +23,10 @@ export default class Route {
     }
 
     static resource(route, model) {
+        // load express route function
         
+        // loads the route using the function
+        app.use(route, require('./' + model));
         // creates a full api resource from a model
     }
 

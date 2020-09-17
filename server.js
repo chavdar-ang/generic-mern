@@ -29,6 +29,9 @@ db.once("open", function () {
  * Dyanmic Routing
  * Adds all routes from routes folder
  */
-require("./routes")(app);
+require("./routes/api.js");
+// require("./routes")(app);
+
+console.log(app._router.stack);
 
 // app.get("/", (req, res) => res.send("API is running"));
