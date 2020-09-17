@@ -29,7 +29,7 @@ db.once("open", function () {
  * Dyanmic Routing
  * Adds all routes from routes folder
  */
-require("./routes/api.js");
+require("./routes");
 // require("./routes")(app);
 
 console.log(app._router.stack);
