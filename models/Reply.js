@@ -1,6 +1,6 @@
-import Model from "./Model";
+import Model from "../src/Database/ORM/Model";
 
-export default class Thread extends Model {
+export default class Reply extends Model {
   
   collection = "replies";
 

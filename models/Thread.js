@@ -1,4 +1,5 @@
-import Model from "./Model";
+import Model from "../src/Database/ORM/Model";
+import mongoose, { Schema } from "mongoose";
 
 export default class Thread extends Model {
   
@@ -13,6 +14,8 @@ export default class Thread extends Model {
     body: {
       type: String,
       required: [true, "Body is required."]
-    }
+    },
+
+    replies: [{ type: Schema.Types.ObjectId, ref: "Reply" }]
   };
 }

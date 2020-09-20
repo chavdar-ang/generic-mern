@@ -16,7 +16,7 @@ content-type: application/json
 
 ###
 
-PATCH http://localhost:5000/api/threads/5f1ee8f36518644874ed1d50 HTTP/1.1
+PATCH http://localhost:5000/api/threads/5f4a2a32044d094c7870f1e4 HTTP/1.1
 content-type: application/json
 
 {
@@ -30,7 +30,7 @@ POST http://localhost:5000/api/threads/reply HTTP/1.1
 content-type: application/json
 
 {
-    "_thread": "5f3ba7697814de0700f27451",
+    "_thread": "5f6731ac27af1c28687a1de4",
     "body": "Reply body test"
 }
 

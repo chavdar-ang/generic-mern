@@ -1,4 +1,4 @@
-const app = require("./../app.js");
+const app = require("../App/app.js");
 
 export default class Route {
 
@@ -26,7 +26,7 @@ export default class Route {
         // load express route function
         
         // loads the route using the function
-        app.use(route, require('./' + model));
+        app.use(route, require('./../../routes/' + model));
         // creates a full api resource from a model
     }
 

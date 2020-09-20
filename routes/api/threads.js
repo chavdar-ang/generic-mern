@@ -1,7 +1,7 @@
 // const { check, validationResult } = require("express-validator");
 import Thread from "../../models/Thread";
+import Reply from "../../models/Reply";
 const resource = require("../Resource");
-const Reply = require("../../models/Reply");
 
 const router = resource(Thread);
 
@@ -20,19 +20,24 @@ router.get("/test/1", (req, res) => {
   res.send(data);
 });
 
-// router.post("/reply", async (req, res) => {
-//   const reply = new Reply({
-//     _thread: req.body._thread,
-//     body: req.body.body
-//   });
+router.post("/reply", async (req, res) => {
+  // create the reply first
+  const reply = await Reply.create({
+    _thread: req.body._thread,
+    body: req.body.body
+  });
 
-//   reply.save();
+  console.log('The thread ID', req.body._thread);
 
-//   let thread = await Thread.findById(req.body._thread);
+  let thread = await Thread.find(req.body._thread);
 
-//   thread.replies.push(reply);
-//   thread.save();
-//   res.send(reply);
-// });
+  console.log('The thread', thread);
+
+  console.log('The replies', thread.replies);
+
+  thread.replies.push(reply);
+  thread.save();
+  res.send(reply);
+});
 
 module.exports = router;

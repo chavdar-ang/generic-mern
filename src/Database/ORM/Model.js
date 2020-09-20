@@ -25,7 +25,7 @@ export default class Model {
   }
 
   mongooseModel() {
-    console.log("current class", this.constructor.name);
+    // console.log("current class", this.constructor.name);
     let className = this.constructor.name;
 
     let mongooseSchema = new Schema(this.schema);
@@ -70,10 +70,11 @@ export default class Model {
     console.log(self.collection);
   }
 
-  static fetch() {
-    let self = new this();
-    return self.results;
-  }
+  // async here!
+  // static fetch() {
+  //   let self = new this();
+  //   return self.results;
+  // }
 
   static async find(id = null) {
     let instance = new this();
@@ -99,21 +100,4 @@ export default class Model {
   }
 }
 
-//   class User extends Model {
-//     collection = "users";
-
-//     results = ["user1", "user2", "user3", "user4"];
-//   }
-
-//   let u = new User();
-
-//   // u.save();
-
-//   // console.log(u.collection);
-
-//   // console.log(u);
-
-//   // User.create();
-//   let res = User.find();
-
-//   console.log(res);
+// export default Model;
