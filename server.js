@@ -1,4 +1,3 @@
-// const express = require("express");
 const app = require("./app");
 const mongoose = require("mongoose");
 const config = require("config");
@@ -30,8 +29,6 @@ db.once("open", function () {
  * Adds all routes from routes folder
  */
 require("./routes");
-// require("./routes")(app);
 
+// shows all routes
 console.log(app._router.stack);
-
-// app.get("/", (req, res) => res.send("API is running"));
