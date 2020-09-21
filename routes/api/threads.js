@@ -1,7 +1,7 @@
 // const { check, validationResult } = require("express-validator");
 import Thread from "../../models/Thread";
 import Reply from "../../models/Reply";
-const resource = require("../Resource");
+const resource = require("../../src/Routing/Resource");
 
 const router = resource(Thread);
 
