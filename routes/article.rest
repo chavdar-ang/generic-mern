@@ -1,0 +1,46 @@
+GET http://localhost:5000/api/articles
+
+###
+
+GET http://localhost:5000/api/articles/5f4b77dd4b595f438887e53d HTTP/1.1
+
+###
+
+POST http://localhost:5000/api/articles HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Fast, unopinionated, minimalist web framework for Node.js 4",
+    "slug": "fast-unopinionated-minimalist-web-framework-for-node-js-4",
+    "body": "Express is a minimal and flexible Node.js web application 4",
+    "author": {
+        "name": "Anisha Pindoria",
+        "username": "nisha",
+        "avatar": "avatar.jpg"
+    },
+    "categories": [
+        {
+            "slug": "community"
+            "name": "Community",
+        },
+        {
+            "name": "Marketplace",
+            "slug": "marketplace"
+        },
+        {
+            "name": "Open source",
+            "slug": "open-source"
+        }
+    ],
+    "published_at": "2020-01-11"
+}
+
+###
+
+PATCH http://localhost:5000/api/articles/5f4a2a32044d094c7870f1e4 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Fast, unopinionated, minimalist web framework for Node.js",
+    "body": "Express is a minimal and flexible Node.js web application"
+}
