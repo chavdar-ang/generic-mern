@@ -1,4 +1,4 @@
-const app = require("../App/app.js");
+import app from "../App/app.js";
 
 export default class Route {
 

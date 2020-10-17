@@ -1,5 +1,5 @@
 // const { check, validationResult } = require("express-validator");
-const resource = require("../../src/Routing/Resource");
-const User = require("../../models/User");
+import resource from "../../src/Routing/Resource";
+import User from "../../models/User";
 
 module.exports = resource(User);

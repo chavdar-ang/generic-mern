@@ -1,7 +1,9 @@
-const router = require("express").Router();
-const { Post, Graph } = require("../../models");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
+import { Post, Graph } from "../../models";
+
 const Schema = mongoose.Schema;
+const router = express.Router();
 
 router.get("/seed", async (req, res) => {
   for (let i = 0; i < 5; i++) {

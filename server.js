@@ -1,6 +1,6 @@
-const app = require("./src/App/app");
-const mongoose = require("mongoose");
-const config = require("config");
+import app from "./src/App/app";
+import mongoose from "mongoose";
+import config from "config";
 
 let mongodbSettings = {
   useNewUrlParser: true,
@@ -31,4 +31,4 @@ db.once("open", function () {
 require("./routes");
 
 // shows all routes
-console.log(app._router.stack);
+// console.log(app._router.stack);

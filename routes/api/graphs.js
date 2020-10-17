@@ -1,5 +1,5 @@
 // const { check, validationResult } = require("express-validator");
-const resource = require("../Resource");
-const Graph = require("../../models/Graph");
+import resource from "../Resource";
+import Graph from "../../models/Graph";
 
 module.exports = resource(Graph);
