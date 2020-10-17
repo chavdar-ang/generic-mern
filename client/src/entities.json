@@ -1,0 +1,32 @@
+{
+    "users" : {
+        "fields": {
+            "name": {
+                "type": "String"
+            },
+            "email": {
+                "type": "Email"
+            }
+        }
+    },
+    "categories" : {
+        "fields": {
+            "name": {
+                "type": "String"
+            },
+            "slug": {
+                "type": "String"
+            }
+        }
+    },
+    "articles": {
+        "fields": {
+            "title": {
+                "type": "String"
+            },
+            "body": {
+                "type": "Text"
+            }
+        }
+    }
+}

@@ -4,18 +4,24 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from "./layouts/Navbar";
 import Homepage from './pages/Homepage';
 import Components from './pages/Components';
+import Sidebar from './layouts/Sidebar';
 
 function App() {
   return (
     <div className="container">
       <BrowserRouter>
         <Navbar />
-        <main>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/components" component={Components} />
-          </Switch>
-        </main>
+        <div className="main">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/page/components" component={Components} />
+            </Switch>
+          </div>
+        </div>
       </BrowserRouter>
     </div>
   );
