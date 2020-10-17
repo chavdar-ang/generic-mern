@@ -15,6 +15,8 @@ app.use(function(req, res, next) {
 
 app.get("/", (req, res) => res.send("API is running"));
 
+app.get("/admin", (req, res) => res.send("Admin panel is here."));
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 export default app;
