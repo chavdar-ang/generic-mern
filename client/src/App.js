@@ -12,6 +12,7 @@ import Homepage from './pages/Homepage';
 import Components from './pages/Components';
 import Sidebar from './layouts/Sidebar';
 import EntityIndex from './components/entities/Index';
+import EntityUpdate from './components/entities/Update';
 
 const store = configureStore();
 
@@ -29,7 +30,8 @@ function App() {
               <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/page/components" component={Components} />
-                <Route path="/entities/:entity" component={EntityIndex} />
+                <Route exact path="/entities/:entity" component={EntityIndex} />
+                <Route path="/entities/:entity/:id" component={EntityUpdate} />
               </Switch>
             </div>
           </div>

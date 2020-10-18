@@ -18,10 +18,12 @@ function Table() {
                         {
                             Object.keys(fields).map((value, index) => <th key={index}>{value}</th>)
                         }
+                        <th>EDIT</th>
+                        <th>DELETE</th>
                     </tr>
                 </thead>
                 {
-                    list.map(row => <Row key={row._id} fields={fields} data={row} />)
+                    list.map(row => <Row key={row._id} entity={entity} fields={fields} data={row} />)
                 }
             </table>
         </div>

@@ -1,9 +1,7 @@
 import React from 'react';
-// import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
-function Row({ fields, data }) {
-
-    // const list = useSelector(state => state.entities.list);
+function Row({ fields, entity, data }) {
 
     return (
         <tbody>
@@ -13,6 +11,8 @@ function Row({ fields, data }) {
                         return(<td key={field}>{data[field]}</td>)
                     })
                 }
+                <td><Link to={`/entities/${entity}/${data['_id']}`}>edit</Link></td>
+                <td><Link to={`/entities/${entity}/${data['_id']}`}>delete</Link></td>
             </tr>
         </tbody>
     );
