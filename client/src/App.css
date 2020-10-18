@@ -38,5 +38,16 @@
 
 /* Content */
 .content {
+  flex: 1;
   padding: 20px 40px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
 }
