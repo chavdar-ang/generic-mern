@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import entities from "../entities.json";
 
-
 function Sidebar() {
-    console.log(entities);
     return (
         <div className="sidebar">
             <ul>
@@ -23,13 +21,10 @@ function Sidebar() {
                     <h4>Entities</h4>
                 </li>
                 {
-                    Object.keys(entities).forEach(key => {
-                        console.log(key);
-                        return (<div>{key}</div>);
+                    Object.keys(entities).map((key, index) => {
+                        return <li key={key}><Link to={'/entities/' + key}>{key}</Link></li>;
                     })
                 }
-
-            {/* // return (<li><Link to={key} key={key}>{key}</Link></li>) */}
             </ul>
         </div>
     );

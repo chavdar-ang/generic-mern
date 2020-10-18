@@ -5,6 +5,7 @@ import Navbar from "./layouts/Navbar";
 import Homepage from './pages/Homepage';
 import Components from './pages/Components';
 import Sidebar from './layouts/Sidebar';
+import EntityIndex from './components/entities/Index';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/page/components" component={Components} />
+              <Route path="/entities/:entity" component={EntityIndex} />
             </Switch>
           </div>
         </div>

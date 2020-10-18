@@ -19,10 +19,30 @@
             }
         }
     },
+    "tags" : {
+        "fields": {
+            "name": {
+                "type": "String"
+            },
+            "slug": {
+                "type": "String"
+            }
+        }
+    },
     "articles": {
         "fields": {
             "title": {
                 "type": "String"
+            },
+            "body": {
+                "type": "Text"
+            }
+        }
+    },
+    "comments": {
+        "fields": {
+            "author": {
+                "type": "ID"
             },
             "body": {
                 "type": "Text"
