@@ -1,22 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { loadEntities } from '../../store/entities';
-// import Table from './Table';
+import { getEntityById } from '../../store/entities';
+import UpdateForm from './UpdateForm';
 
 
 function Update() {
-    const { entity } = useParams();
-    
-    //     // load data
-    // const dispatch = useDispatch();
+    const { entity, id } = useParams();
 
-    // dispatch(loadEntities(entity));
+    // Get entity by id
+    const dispatch = useDispatch();
+    dispatch(getEntityById(entity, id));
 
     return (
         <div>
             <h2>Update {entity}</h2>
-            {/* <Table /> */}
+            <p>{id}</p>
+            <UpdateForm />
         </div>
     );
 }

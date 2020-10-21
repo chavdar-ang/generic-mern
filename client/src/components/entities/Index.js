@@ -10,7 +10,6 @@ function Index() {
     
     //     // load data
     const dispatch = useDispatch();
-
     dispatch(loadEntities(entity));
 
     return (

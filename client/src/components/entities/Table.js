@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import entities from "../../entities.json";
 import Row from './Row';
 

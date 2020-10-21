@@ -7,7 +7,6 @@ const api = ({ dispatch }) => next => async action => {
 
   const { url, method, data, onSuccess, onError } = action.payload;
 
-//   if (onStart) dispatch({ type: onStart });
   next(action);
 
   try {
