@@ -1,12 +1,14 @@
-import React from 'react';
-
-function Textarea() {
-  return (
-    <div>
-        <label htmlFor="gen-textarea">Textarea label</label>
-        <textarea type="text" name="gen-textarea"/>
-    </div>
-  );
+import React, { Component } from 'react';
+class Textarea extends Component {
+  
+  render() {
+    const { field, value } = this.props;
+    return (
+      <div>
+        <label htmlFor={field.name}>{field.label || field.name}</label>
+        <textarea name={field.name} defaultValue={value || ''} rows={10} />
+      </div>
+    )
+  }
 }
-
 export default Textarea;

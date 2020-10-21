@@ -1,12 +1,14 @@
-import React from 'react';
-
-function Input() {
-  return (
-    <div>
-        <label htmlFor="gen-input">Input label</label>
-        <input type="text" name="gen-input" placeholder="Type something"/>
-    </div>
-  );
+import React, { Component } from 'react';
+class Text extends Component {
+  
+  render() {
+    const { field, value } = this.props;
+    return (
+      <div>
+        <label htmlFor={field.name}>{field.label || field.name}</label>
+        <input type="text" name={field.name} defaultValue={value || ''} placeholder={field.placeholder | ''}/>
+      </div>
+    )
+  }
 }
-
-export default Input;
+export default Text;

@@ -1,5 +1,5 @@
 {
-    "users" : {
+    "users": {
         "fields": {
             "name": {
                 "type": "text"
@@ -9,7 +9,7 @@
             }
         }
     },
-    "categories" : {
+    "categories": {
         "fields": {
             "name": {
                 "type": "text"
@@ -19,7 +19,7 @@
             }
         }
     },
-    "tags" : {
+    "tags": {
         "fields": {
             "name": {
                 "type": "text"
@@ -32,10 +32,23 @@
     "articles": {
         "fields": {
             "title": {
-                "type": "text"
+                "name": "Title",
+                "type": "text",
+                "placeholder": "Enter a title"
             },
             "body": {
-                "type": "textarea"
+                "name": "Body",
+                "type": "textarea",
+                "label": "Content"
+            }
+        },
+        "related": {
+            "author": {
+                "name": "Author",
+                "type": "radio",
+                "on": "users",
+                "option": "name",
+                "value": "_id"
             }
         }
     },

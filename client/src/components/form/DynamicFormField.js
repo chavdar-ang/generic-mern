@@ -31,10 +31,10 @@ class DynamicFormField extends Component {
         textarea: Textarea,
         select: Select
     };
-    
+
     render() {
-       const TagName = this.components[this.props.type || 'text'];
-       return <TagName />
+       const TagName = this.components[this.props.field.type || 'text'];
+       return <TagName field={this.props.field} value={this.props.data} />
     }
 }
 export default DynamicFormField;
