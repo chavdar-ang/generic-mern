@@ -2,40 +2,40 @@
     "users" : {
         "fields": {
             "name": {
-                "type": "String"
+                "type": "text"
             },
             "email": {
-                "type": "Email"
+                "type": "email"
             }
         }
     },
     "categories" : {
         "fields": {
             "name": {
-                "type": "String"
+                "type": "text"
             },
             "slug": {
-                "type": "String"
+                "type": "text"
             }
         }
     },
     "tags" : {
         "fields": {
             "name": {
-                "type": "String"
+                "type": "text"
             },
             "slug": {
-                "type": "String"
+                "type": "text"
             }
         }
     },
     "articles": {
         "fields": {
             "title": {
-                "type": "String"
+                "type": "text"
             },
             "body": {
-                "type": "Text"
+                "type": "textarea"
             }
         }
     },
@@ -45,7 +45,7 @@
                 "type": "ID"
             },
             "body": {
-                "type": "Text"
+                "type": "textarea"
             }
         }
     }

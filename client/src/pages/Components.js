@@ -1,9 +1,9 @@
 import React from 'react';
-import InputText from '../components/form/input/Text';
-import InputPassword from '../components/form/input/Password';
+import InputText from '../components/form/Text';
+import InputPassword from '../components/form/Password';
 import Textarea from '../components/form/Textarea';
-import Checkbox from '../components/form/input/Checkbox';
-import Radio from '../components/form/input/Radio';
+import Checkbox from '../components/form/Checkbox';
+import Radio from '../components/form/Radio';
 import Select from '../components/form/Select';
 
 function Components() {
