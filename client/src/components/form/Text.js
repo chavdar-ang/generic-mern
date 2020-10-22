@@ -3,6 +3,9 @@ class Text extends Component {
   
   render() {
     const { field, value } = this.props;
+
+    console.log('value', this.props);
+    
     return (
       <div>
         <label htmlFor={field.name}>{field.label || field.name}</label>
