@@ -1,18 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { apiCallBegan } from './api';
+import { apifetchRequest } from './api';
 
 const slice = createSlice({
   name: 'entities',
   initialState: {
-    list: [],
+    items: [],
+    loading: true,
+    erros: null,
     updating: {}
   },
   reducers: {
     entitiesReceived: (entities, action) => {
-        entities.list = action.payload;
+        entities.items = action.payload;
+        entities.loading = false;
     },
     entityUpdating: (entities, action) => {
         entities.updating = action.payload;
+        entities.loading = false;
     }
   },
 });
@@ -27,7 +31,7 @@ export default slice.reducer;
 // Action Creators
 export const loadEntities = (url) => (dispatch, getState) => {
   dispatch(
-    apiCallBegan({
+    apifetchRequest({
       url,
       onSuccess: entitiesReceived.type
     })
@@ -37,7 +41,7 @@ export const loadEntities = (url) => (dispatch, getState) => {
 // Selector
 export const getEntityById = (entity, id) => (dispatch, getState) => {
   dispatch(
-    apiCallBegan({
+    apifetchRequest({
       url: `${entity}/${id}`,
       onSuccess: entityUpdating.type,
     })

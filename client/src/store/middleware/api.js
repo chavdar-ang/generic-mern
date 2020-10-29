@@ -3,7 +3,7 @@ import env from "../../config/env";
 import * as actions from "../api";
 
 const api = ({ dispatch }) => next => async action => {
-  if (action.type !== actions.apiCallBegan.type) return next(action);
+  if (action.type !== actions.apifetchRequest.type) return next(action);
 
   const { url, method, data, onSuccess, onError } = action.payload;
 
@@ -17,11 +17,11 @@ const api = ({ dispatch }) => next => async action => {
       data,
     });
 
-    dispatch(actions.apiCallSuccess(response.data));
+    dispatch(actions.apifetchSuccess(response.data));
 
     if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
   } catch (error) {
-    dispatch(actions.apiCallFailed(error.message));
+    dispatch(actions.apifetchFailure(error.message));
 
     if (onError) dispatch({ type: onError, payload: error.message });
   }

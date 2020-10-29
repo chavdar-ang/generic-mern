@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { getEntityById } from '../../store/entities';
-import UpdateForm from './UpdateForm';
+// import UpdateForm from './UpdateForm';
 import entities from "../../entities.json";
 
 
@@ -19,13 +19,18 @@ function Update() {
     const dispatch = useDispatch();
     dispatch(getEntityById(entity, id));
 
+    const UpdateForm = React.lazy(() => import('./UpdateForm'));
+
     return (
         <div>
             <h2>Update {entity}</h2>
-            <UpdateForm />
-            <div>
-                <button>Update</button>
-            </div>
+
+            <Suspense fallback={<h1>Loading profile...</h1>}>
+                <UpdateForm />
+                <div>
+                    <button>Update</button>
+                </div>
+            </Suspense>
         </div>
     );
 }
