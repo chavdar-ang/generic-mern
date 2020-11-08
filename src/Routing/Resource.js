@@ -74,11 +74,12 @@ resource = model => {
     let document;
     try {
       document = await model.find(req.params.id);
-      if (document == null) {
-        return res.status(404).json({ message: "Document not found." });
-      }
+      
+      // if (document == null) {
+      //   return res.status(404).json({ message: "Document not found." });
+      // }
     } catch (err) {
-      return res.status(500).json({ message: err.message });
+      return res.status(404).json({ message: err.message });
     }
     res.document = document;
     next();

@@ -83,10 +83,11 @@ export default class Model {
     try {
       return id === null
         ? await model.find()
-        : await model.findOne({ _id: id });
+        : await model.findById(id);
     } catch (err) {
-      console.log(err.message);
-      return err.message;
+      throw new Error(err.message);
+      // console.log(err.message);
+      // return err.message;
     }
     // res.send(req.document);
     // console.log(this.dbInstance().find());
